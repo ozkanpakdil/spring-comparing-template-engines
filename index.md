@@ -1,37 +1,55 @@
-## Welcome to GitHub Pages
+## Spring template engine performance tests
 
-You can use the [editor on GitHub](https://github.com/ozkanpakdil/spring-comparing-template-engines/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Runs performance test from [Github Actions](https://github.com/ozkanpakdil/spring-comparing-template-engines/actions) and updates here.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
+### Results from 14-05-2021
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```JAVA11
+jsp Time taken for tests:   1.307 seconds
+velocity Time taken for tests:   0.871 seconds
+freemarker Time taken for tests:   0.663 seconds
+thymeleaf Time taken for tests:   1.731 seconds
+mustache Time taken for tests:   0.568 seconds
+jade Time taken for tests:   12.617 seconds
+pebble Time taken for tests:   0.536 seconds
+handlebars Time taken for tests:   3.793 seconds
+jtwig Time taken for tests:   1.088 seconds
+scalate Time taken for tests:   4.370 seconds
+httl Time taken for tests:   0.564 seconds
+chunk Time taken for tests:   0.505 seconds
+htmlFlow Time taken for tests:   0.297 seconds
+trimou Time taken for tests:   0.380 seconds
+rocker Time taken for tests:   0.319 seconds
+ickenham Time taken for tests:   0.687 seconds
+rythm Time taken for tests:   0.887 seconds
+groovy Time taken for tests:   28.703 seconds
+liqp Time taken for tests:   1.567 seconds
+kotlinx Time taken for tests:   0.437 seconds
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+```JAVA16
+jsp Time taken for tests:   1.599 seconds
+velocity Time taken for tests:   0.826 seconds
+freemarker Time taken for tests:   0.799 seconds
+thymeleaf Time taken for tests:   2.023 seconds
+mustache Time taken for tests:   0.541 seconds
+jade Time taken for tests:   19.185 seconds
+pebble Time taken for tests:   3.088 seconds
+handlebars Time taken for tests:   4.594 seconds
+jtwig 
+scalate Time taken for tests:   4.090 seconds
+httl Time taken for tests:   0.523 seconds
+chunk Time taken for tests:   0.496 seconds
+htmlFlow Time taken for tests:   0.321 seconds
+trimou Time taken for tests:   0.365 seconds
+rocker Time taken for tests:   0.346 seconds
+ickenham Time taken for tests:   1.996 seconds
+rythm Time taken for tests:   0.877 seconds
+groovy Time taken for tests:   28.409 seconds
+liqp Time taken for tests:   1.690 seconds
+kotlinx Time taken for tests:   0.465 seconds
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ozkanpakdil/spring-comparing-template-engines/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
