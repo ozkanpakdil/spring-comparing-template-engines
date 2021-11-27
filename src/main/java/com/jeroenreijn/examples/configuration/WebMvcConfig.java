@@ -46,9 +46,6 @@ import de.neuland.jade4j.spring.template.SpringTemplateLoader;
 import de.neuland.jade4j.spring.view.JadeViewResolver;
 import httl.web.springmvc.HttlViewResolver;
 
-import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
-import org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver;
-
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.jeroenreijn.examples.controller", "com.jeroenreijn.examples.factory"})
