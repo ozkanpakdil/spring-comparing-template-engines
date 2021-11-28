@@ -126,27 +126,6 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
     }
 
     @Bean
-    public ViewResolver velocityViewResolver() {
-        VelocityLayoutViewResolver bean = new VelocityLayoutViewResolver();
-        bean.setPrefix("/WEB-INF/velocity/");
-        bean.setViewNames("*-velocity");
-        bean.setLayoutUrl("/WEB-INF/velocity/layout.vm");
-        bean.setSuffix(".vm");
-//        bean.setToolboxConfigLocation("/WEB-INF/velocity/toolbox.xml");
-        LinkTool l = new LinkTool();
-        bean.getAttributesMap().put("link",l);
-        bean.setCache(false);
-        return bean;
-    }
-
-    @Bean
-    public VelocityConfigurer velocityConfig() {
-        VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
-        velocityConfigurer.setResourceLoaderPath("/");
-        return velocityConfigurer;
-    }
-
-    @Bean
     public ViewResolver handlebarsViewResolver() {
         HandlebarsViewResolver viewResolver = new HandlebarsViewResolver();
         viewResolver.setViewNames("*-handlebars");
