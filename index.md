@@ -11,34 +11,34 @@
 
 Runs performance test(ab -q -n 10000 -c 10 http://localhost:8080/TEMPLATE) from [Github Actions](https://github.com/ozkanpakdil/spring-comparing-template-engines/actions) and updates here.
 
-### Results from Tue Nov 30 09:20:06 UTC 2021
-results taken from mvn and jvm :Apache Maven 3.8.4 (9b656c72d54e5bacbed989b64718c159fe39b537)
-Maven home: /usr/share/apache-maven-3.8.4
-Java version: 11.0.13, vendor: Azul Systems, Inc., runtime: /opt/hostedtoolcache/jdk/11.0.13/x64
+### Results from Wed Oct 19 10:24:59 UTC 2022
+results taken from mvn and jvm :Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
+Maven home: /usr/share/apache-maven-3.8.6
+Java version: 11.0.17, vendor: Azul Systems, Inc., runtime: /opt/hostedtoolcache/jdk/11.0.17/x64
 Default locale: en, platform encoding: UTF-8
-OS name: "linux", version: "5.11.0-1021-azure", arch: "amd64", family: "unix"
+OS name: "linux", version: "5.15.0-1020-azure", arch: "amd64", family: "unix"
 
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | 4.753|
-|velocity | 3.406|
-|freemarker | 3.364|
-|thymeleaf | 7.097|
-|mustache | 3.557|
-|jade | 122.553|
-|pebble | 4.474|
-|handlebars | 17.242|
-|scalate | 7.143|
-|httl | 3.981|
-|chunk | 3.709|
-|htmlFlow | 2.715|
-|trimou | 2.932|
-|rocker | 2.861|
-|ickenham | 5.135|
-|rythm | 3.625|
-|groovy | 884.562|
-|liqp | 7.956|
-|kotlinx | 3.260|
+|jsp | 6.197|
+|velocity | 4.939|
+|freemarker | 4.739|
+|thymeleaf | 10.853|
+|mustache | 5.463|
+|jade | 199.262|
+|pebble | 6.199|
+|handlebars | 24.204|
+|scalate | 10.200|
+|httl | 5.554|
+|chunk | 5.107|
+|htmlFlow | 3.701|
+|trimou | 4.049|
+|rocker | 3.873|
+|ickenham | 7.018|
+|rythm | 4.937|
+|groovy | 1147.600|
+|liqp | 8.934|
+|kotlinx | 4.257|
 
 If you are planning to use any template engine from the list, choose wisely, lowest is the best performance.
 
