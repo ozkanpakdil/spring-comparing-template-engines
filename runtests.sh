@@ -27,25 +27,16 @@ sonuc=`cat result-$1.txt`
 date=`date`
 
 cat > index.md <<EOL
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-         google_ad_client: "ca-pub-7118095690658891",
-         enable_page_level_ads: true
-    });
-</script>
-
 ## Spring template engine performance tests
+
+### Results from $date
+$sonuc
+
+results taken from mvn and jvm :$javaver
 
 Runs performance test(ab -q -n 10000 -c 10 http://localhost:8080/TEMPLATE) from [Github Actions](https://github.com/ozkanpakdil/spring-comparing-template-engines/actions) and updates here.
 
-### Results from $date
-results taken from mvn and jvm :$javaver
-
-$sonuc
-
-If you are planning to use any template engine from the list, choose wisely, lowest is the best performance.
+If you are planning to use any template engine from the list, choose wisely, lowest is the best performance. 
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
