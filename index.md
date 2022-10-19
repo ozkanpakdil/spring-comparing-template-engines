@@ -1,46 +1,37 @@
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-         google_ad_client: "ca-pub-7118095690658891",
-         enable_page_level_ads: true
-    });
-</script>
-
 ## Spring template engine performance tests
 
-Runs performance test(ab -q -n 10000 -c 10 http://localhost:8080/TEMPLATE) from [Github Actions](https://github.com/ozkanpakdil/spring-comparing-template-engines/actions) and updates here.
+### Results from Wed Oct 19 22:09:47 UTC 2022
+|Engine Name | Seconds|
+|------------|--------|
+|jsp | 3.892|
+|velocity | 2.847|
+|freemarker | 2.941|
+|thymeleaf | 6.524|
+|mustache | 3.069|
+|jade | 113.584|
+|pebble | 3.877|
+|handlebars | 16.579|
+|scalate | 7.139|
+|httl | 3.121|
+|chunk | 3.051|
+|htmlFlow | 2.229|
+|trimou | 2.427|
+|rocker | 2.337|
+|ickenham | 4.615|
+|rythm | 3.018|
+|groovy | 773.485|
+|liqp | 7.273|
+|kotlinx | 2.996|
 
-### Results from Wed Oct 19 16:08:15 UTC 2022
 results taken from mvn and jvm :Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
 Maven home: /usr/share/apache-maven-3.8.6
 Java version: 17.0.4.1, vendor: Eclipse Adoptium, runtime: /usr/lib/jvm/temurin-17-jdk-amd64
 Default locale: en, platform encoding: UTF-8
-OS name: "linux", version: "5.15.0-1021-azure", arch: "amd64", family: "unix"
+OS name: "linux", version: "5.15.0-1020-azure", arch: "amd64", family: "unix"
 
-|Engine Name | Seconds|
-|------------|--------|
-|jsp | 5.820|
-|velocity | 4.488|
-|freemarker | 4.412|
-|thymeleaf | 9.505|
-|mustache | 4.726|
-|jade | 201.620|
-|pebble | 5.937|
-|handlebars | 24.128|
-|scalate | 10.253|
-|httl | 4.875|
-|chunk | 4.530|
-|htmlFlow | 3.367|
-|trimou | 3.681|
-|rocker | 3.549|
-|ickenham | 6.710|
-|rythm | 4.504|
-|groovy | 1066.008|
-|liqp | 8.997|
-|kotlinx | 4.571|
+Runs performance test(ab -q -n 10000 -c 10 http://localhost:8080/TEMPLATE) from [Github Actions](https://github.com/ozkanpakdil/spring-comparing-template-engines/actions) and updates here.
 
-If you are planning to use any template engine from the list, choose wisely, lowest is the best performance.
+If you are planning to use any template engine from the list, choose wisely, lowest is the best performance. 
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
