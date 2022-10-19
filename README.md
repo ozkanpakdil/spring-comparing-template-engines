@@ -1,4 +1,4 @@
-# Comparing Template engines for Spring MVC
+# Comparing Template engines for Spring Boot
 
 Check results [here](https://ozkanpakdil.github.io/spring-comparing-template-engines/)
 
