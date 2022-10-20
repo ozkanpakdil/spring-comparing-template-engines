@@ -28,8 +28,8 @@ date=`date`
 
 cat > index.md <<EOL
 ## Spring template engine performance tests
+### taken at $date
 
-### Results from $date
 $sonuc
 
 results taken from mvn and jvm :$javaver
