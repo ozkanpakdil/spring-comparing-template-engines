@@ -1,27 +1,27 @@
 ## Spring template engine performance tests
+### taken at Thu Oct 20 07:26:47 UTC 2022
 
-### Results from Wed Oct 19 22:09:47 UTC 2022
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | 3.892|
-|velocity | 2.847|
-|freemarker | 2.941|
-|thymeleaf | 6.524|
-|mustache | 3.069|
-|jade | 113.584|
-|pebble | 3.877|
-|handlebars | 16.579|
-|scalate | 7.139|
-|httl | 3.121|
-|chunk | 3.051|
-|htmlFlow | 2.229|
-|trimou | 2.427|
-|rocker | 2.337|
-|ickenham | 4.615|
-|rythm | 3.018|
-|groovy | 773.485|
-|liqp | 7.273|
-|kotlinx | 2.996|
+|jsp | 6.533|
+|velocity | 5.014|
+|freemarker | 5.267|
+|thymeleaf | 10.646|
+|mustache | 4.784|
+|jade | 130.902|
+|pebble | 4.541|
+|handlebars | 18.274|
+|scalate | 7.815|
+|httl | 3.622|
+|chunk | 3.525|
+|htmlFlow | 2.527|
+|trimou | 2.800|
+|rocker | 2.740|
+|ickenham | 5.456|
+|rythm | 3.486|
+|groovy | 867.855|
+|liqp | 7.802|
+|kotlinx | 3.065|
 
 results taken from mvn and jvm :Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
 Maven home: /usr/share/apache-maven-3.8.6
