@@ -1,33 +1,35 @@
 ## Spring template engine performance tests
-### taken at Thu Oct 20 07:26:47 UTC 2022
+### taken at Fri Nov  4 12:30:25 UTC 2022
+
+lower is the better
 
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | 6.533|
-|velocity | 5.014|
-|freemarker | 5.267|
-|thymeleaf | 10.646|
-|mustache | 4.784|
-|jade | 130.902|
-|pebble | 4.541|
-|handlebars | 18.274|
-|scalate | 7.815|
-|httl | 3.622|
-|chunk | 3.525|
-|htmlFlow | 2.527|
-|trimou | 2.800|
-|rocker | 2.740|
-|ickenham | 5.456|
-|rythm | 3.486|
-|groovy | 867.855|
-|liqp | 7.802|
-|kotlinx | 3.065|
+|jsp | 6.012|
+|velocity | 4.504|
+|freemarker | 4.701|
+|thymeleaf | 9.942|
+|mustache | 4.884|
+|jade | 215.379|
+|pebble | 6.057|
+|handlebars | 24.967|
+|scalate | 10.475|
+|httl | 5.098|
+|chunk | 4.735|
+|htmlFlow | 3.464|
+|trimou | 3.817|
+|rocker | 3.754|
+|ickenham | 7.301|
+|rythm | 4.854|
+|groovy | 1131.989|
+|liqp | 10.059|
+|kotlinx | 4.889|
 
 results taken from mvn and jvm :Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
 Maven home: /usr/share/apache-maven-3.8.6
 Java version: 17.0.4.1, vendor: Eclipse Adoptium, runtime: /usr/lib/jvm/temurin-17-jdk-amd64
 Default locale: en, platform encoding: UTF-8
-OS name: "linux", version: "5.15.0-1020-azure", arch: "amd64", family: "unix"
+OS name: "linux", version: "5.15.0-1022-azure", arch: "amd64", family: "unix"
 
 Runs performance test(ab -q -n 10000 -c 10 http://localhost:8080/TEMPLATE) from [Github Actions](https://github.com/ozkanpakdil/spring-comparing-template-engines/actions) and updates here.
 
