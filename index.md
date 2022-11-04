@@ -1,29 +1,29 @@
 ## Spring template engine performance tests
-### taken at Fri Nov  4 12:30:25 UTC 2022
+### taken at Fri Nov  4 12:54:10 UTC 2022
 
 lower is the better
 
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | 6.012|
-|velocity | 4.504|
-|freemarker | 4.701|
-|thymeleaf | 9.942|
-|mustache | 4.884|
-|jade | 215.379|
-|pebble | 6.057|
-|handlebars | 24.967|
-|scalate | 10.475|
-|httl | 5.098|
-|chunk | 4.735|
-|htmlFlow | 3.464|
-|trimou | 3.817|
-|rocker | 3.754|
-|ickenham | 7.301|
-|rythm | 4.854|
-|groovy | 1131.989|
-|liqp | 10.059|
-|kotlinx | 4.889|
+|jsp | 4.377|
+|velocity | 3.308|
+|freemarker | 3.326|
+|thymeleaf | 7.204|
+|mustache | 3.518|
+|jade | 128.317|
+|pebble | 4.355|
+|handlebars | 18.255|
+|scalate | 8.074|
+|httl | 3.493|
+|chunk | 3.390|
+|htmlFlow | 2.464|
+|trimou | 2.693|
+|rocker | 2.607|
+|ickenham | 5.348|
+|rythm | 3.508|
+|groovy | 839.235|
+|liqp | 7.403|
+|kotlinx | 3.419|
 
 results taken from mvn and jvm :Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
 Maven home: /usr/share/apache-maven-3.8.6
@@ -47,4 +47,14 @@ If you are planning to use any template engine from the list, choose wisely, low
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77642-34"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-77642-34');
+</script>
+
 
