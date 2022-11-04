@@ -30,6 +30,8 @@ cat > index.md <<EOL
 ## Spring template engine performance tests
 ### taken at $date
 
+lower is the better
+
 $sonuc
 
 results taken from mvn and jvm :$javaver
