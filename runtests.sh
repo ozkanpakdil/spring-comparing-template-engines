@@ -42,6 +42,8 @@ Runs performance test(ab -q -n 10000 -c 10 http://localhost:8080/TEMPLATE) from 
 If you are planning to use any template engine from the list, choose wisely, lowest is the best performance. 
 
 <div id="disqus_thread"></div>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'ozkanpakdil';
