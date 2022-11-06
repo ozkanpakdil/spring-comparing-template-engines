@@ -1,29 +1,30 @@
 ## Spring template engine performance tests
-### taken at Fri Nov  4 12:54:10 UTC 2022
+### taken at Sun Nov  6 16:54:19 UTC 2022
 
 lower is the better
+<div id="chart_div"></div>
 
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | 4.377|
-|velocity | 3.308|
-|freemarker | 3.326|
-|thymeleaf | 7.204|
-|mustache | 3.518|
-|jade | 128.317|
-|pebble | 4.355|
-|handlebars | 18.255|
-|scalate | 8.074|
-|httl | 3.493|
-|chunk | 3.390|
-|htmlFlow | 2.464|
-|trimou | 2.693|
-|rocker | 2.607|
-|ickenham | 5.348|
-|rythm | 3.508|
-|groovy | 839.235|
-|liqp | 7.403|
-|kotlinx | 3.419|
+|jsp | 4.262|
+|velocity | 3.205|
+|freemarker | 3.233|
+|thymeleaf | 7.144|
+|mustache | 3.545|
+|jade | 128.296|
+|pebble | 4.533|
+|handlebars | 17.900|
+|scalate | 7.824|
+|httl | 3.548|
+|chunk | 3.643|
+|htmlFlow | 2.718|
+|trimou | 2.936|
+|rocker | 2.727|
+|ickenham | 5.252|
+|rythm | 3.562|
+|groovy | 837.128|
+|liqp | 7.159|
+|kotlinx | 3.989|
 
 results taken from mvn and jvm :Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
 Maven home: /usr/share/apache-maven-3.8.6
@@ -46,6 +47,66 @@ If you are planning to use any template engine from the list, choose wisely, low
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
+    
+    google.charts.load('current', {
+          packages: ['corechart'],
+          callback: drawChart
+        });
+
+        const chartOptions = {
+          width: 600,
+          height: 600,
+          annotations: {
+            textStyle: {
+              fontName: 'Times-Roman',
+              fontSize: 10,
+              bold: false,
+              italic: false,
+              // The color of the text.
+              color: '#871b47',
+              // The color of the text outline.
+              auraColor: '#d799ae',
+              // The transparency of the text.
+              opacity: 0.8
+            }
+          }
+        };
+
+        function drawChart() {
+          var tableRows = [];
+          var results = document.getElementsByTagName('table');
+          Array.prototype.forEach.call(results[0].rows, function (row) {
+            var tableColumns = [];
+            Array.prototype.forEach.call(row.cells, function (cell) {
+              var cellText = cell.textContent || cell.innerText;
+              if (parseFloat(cellText) > 20)
+                return; //continue;
+              switch (cell.cellIndex) {
+                case 0:
+                  tableColumns.push(cellText.trim());
+                  break;
+
+                default:
+                  switch (row.rowIndex) {
+                    case 0:
+                      tableColumns.push(cellText.trim());
+                      break;
+                    default:
+                      tableColumns.push(parseFloat(cellText));
+                  }
+              }
+            });
+            tableRows.push(tableColumns);
+          });
+
+          var data = google.visualization.arrayToDataTable(tableRows.filter(function (el) {
+            return el[1] != null;
+          }));
+          const newDiv = document.createElement("div");
+          var chart = new google.visualization.ColumnChart(newDiv);
+          chart.draw(data, chartOptions);
+          document.getElementById('chart_div').append(newDiv);
+        }
 </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77642-34"></script>
