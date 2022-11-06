@@ -31,6 +31,7 @@ cat > index.md <<EOL
 ### taken at $date
 
 lower is the better
+<div id="chart_div"></div>
 
 $sonuc
 
@@ -51,6 +52,66 @@ If you are planning to use any template engine from the list, choose wisely, low
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
+    
+    google.charts.load('current', {
+          packages: ['corechart'],
+          callback: drawChart
+        });
+
+        const chartOptions = {
+          width: 600,
+          height: 600,
+          annotations: {
+            textStyle: {
+              fontName: 'Times-Roman',
+              fontSize: 10,
+              bold: false,
+              italic: false,
+              // The color of the text.
+              color: '#871b47',
+              // The color of the text outline.
+              auraColor: '#d799ae',
+              // The transparency of the text.
+              opacity: 0.8
+            }
+          }
+        };
+
+        function drawChart() {
+          var tableRows = [];
+          var results = document.getElementsByTagName('table');
+          Array.prototype.forEach.call(results[0].rows, function (row) {
+            var tableColumns = [];
+            Array.prototype.forEach.call(row.cells, function (cell) {
+              var cellText = cell.textContent || cell.innerText;
+              if (parseFloat(cellText) > 20)
+                return; //continue;
+              switch (cell.cellIndex) {
+                case 0:
+                  tableColumns.push(cellText.trim());
+                  break;
+
+                default:
+                  switch (row.rowIndex) {
+                    case 0:
+                      tableColumns.push(cellText.trim());
+                      break;
+                    default:
+                      tableColumns.push(parseFloat(cellText));
+                  }
+              }
+            });
+            tableRows.push(tableColumns);
+          });
+
+          var data = google.visualization.arrayToDataTable(tableRows.filter(function (el) {
+            return el[1] != null;
+          }));
+          const newDiv = document.createElement("div");
+          var chart = new google.visualization.ColumnChart(newDiv);
+          chart.draw(data, chartOptions);
+          document.getElementById('chart_div').append(newDiv);
+        }
 </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77642-34"></script>
