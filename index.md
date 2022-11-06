@@ -1,30 +1,30 @@
 ## Spring template engine performance tests
-### taken at Sun Nov  6 16:54:19 UTC 2022
+### taken at Sun Nov  6 17:31:15 UTC 2022
 
 lower is the better
 <div id="chart_div"></div>
 
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | 4.262|
-|velocity | 3.205|
-|freemarker | 3.233|
-|thymeleaf | 7.144|
-|mustache | 3.545|
-|jade | 128.296|
-|pebble | 4.533|
-|handlebars | 17.900|
-|scalate | 7.824|
-|httl | 3.548|
-|chunk | 3.643|
-|htmlFlow | 2.718|
-|trimou | 2.936|
-|rocker | 2.727|
-|ickenham | 5.252|
-|rythm | 3.562|
-|groovy | 837.128|
-|liqp | 7.159|
-|kotlinx | 3.989|
+|jsp | 4.270|
+|velocity | 3.376|
+|freemarker | 3.332|
+|thymeleaf | 7.027|
+|mustache | 3.498|
+|jade | 135.446|
+|pebble | 4.457|
+|handlebars | 18.060|
+|scalate | 7.881|
+|httl | 3.683|
+|chunk | 3.653|
+|htmlFlow | 2.539|
+|trimou | 2.852|
+|rocker | 2.785|
+|ickenham | 5.425|
+|rythm | 3.594|
+|groovy | 865.177|
+|liqp | 7.760|
+|kotlinx | 3.462|
 
 results taken from mvn and jvm :Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
 Maven home: /usr/share/apache-maven-3.8.6
@@ -37,6 +37,8 @@ Runs performance test(ab -q -n 10000 -c 10 http://localhost:8080/TEMPLATE) from 
 If you are planning to use any template engine from the list, choose wisely, lowest is the best performance. 
 
 <div id="disqus_thread"></div>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'ozkanpakdil';
