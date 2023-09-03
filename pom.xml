@@ -12,7 +12,7 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-        <jquery.version>3.6.1</jquery.version>
+        <jquery.version>3.6.4</jquery.version>
         <bootstrap.version>5.2.3</bootstrap.version>
         <webjars-locator.version>0.46</webjars-locator.version>
 
@@ -36,14 +36,14 @@
         <rythm.version>1.4.2</rythm.version>
         <rythm-spring.version>1.2.2</rythm-spring.version>
         <liqp.version>0.8.5.2</liqp.version>
-        <kotlin.version>1.7.22</kotlin.version>
+        <kotlin.version>1.8.0</kotlin.version>
         <kotlinx.html.version>0.8.0</kotlinx.html.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.5</version>
+        <version>3.0.4</version>
         <relativePath/>
     </parent>
 
@@ -338,7 +338,7 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>4.7.2</version>
+                <version>4.8.1</version>
             </plugin>
 
             <plugin>
