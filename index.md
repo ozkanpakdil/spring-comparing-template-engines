@@ -1,36 +1,36 @@
 ## Spring template engine performance tests
-### taken at Sun Dec 25 11:07:36 UTC 2022
+### taken at Sun Sep  3 09:59:57 UTC 2023
 
 lower is the better
 <div id="chart_div"></div>
 
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | 4.393|
-|velocity | 3.118|
-|freemarker | 3.384|
-|thymeleaf | 7.097|
-|mustache | 3.459|
-|jade | 128.553|
-|pebble | 9.484|
-|handlebars | 19.632|
-|scalate | 9.847|
-|httl | 4.241|
-|chunk | 4.972|
-|htmlFlow | 3.462|
-|trimou | 3.697|
-|rocker | 3.626|
-|ickenham | 5.943|
-|rythm | 3.912|
-|groovy | 835.431|
-|liqp | 7.490|
-|kotlinx | 4.355|
+|jsp | |
+|velocity | |
+|freemarker | |
+|thymeleaf | |
+|mustache | |
+|jade | |
+|pebble | |
+|handlebars | |
+|scalate | |
+|httl | |
+|chunk | |
+|htmlFlow | |
+|trimou | |
+|rocker | |
+|ickenham | |
+|rythm | |
+|groovy | |
+|liqp | |
+|kotlinx | |
 
-results taken from mvn and jvm :Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
-Maven home: /usr/share/apache-maven-3.8.6
-Java version: 17.0.5, vendor: Eclipse Adoptium, runtime: /usr/lib/jvm/temurin-17-jdk-amd64
+results taken from mvn and jvm :Apache Maven 3.8.8 (4c87b05d9aedce574290d1acc98575ed5eb6cd39)
+Maven home: /usr/share/apache-maven-3.8.8
+Java version: 17.0.8, vendor: Eclipse Adoptium, runtime: /usr/lib/jvm/temurin-17-jdk-amd64
 Default locale: en, platform encoding: UTF-8
-OS name: "linux", version: "5.15.0-1024-azure", arch: "amd64", family: "unix"
+OS name: "linux", version: "5.15.0-1041-azure", arch: "amd64", family: "unix"
 
 Runs performance test(ab -q -n 10000 -c 10 http://localhost:8080/TEMPLATE) from [Github Actions](https://github.com/ozkanpakdil/spring-comparing-template-engines/actions) and updates here.
 
