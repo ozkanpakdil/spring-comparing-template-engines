@@ -5,10 +5,6 @@ import java.util.Locale;
 import java.util.Map;
 
 import com.jeroenreijn.examples.view.*;
-import org.apache.velocity.tools.generic.LinkTool;
-import org.fusesource.scalate.spring.view.ScalateViewResolver;
-import org.rythmengine.spring.web.RythmConfigurer;
-import org.rythmengine.spring.web.RythmViewResolver;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -40,14 +36,6 @@ import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
 import com.jeroenreijn.examples.repository.InMemoryPresentationsRepository;
 import com.jeroenreijn.examples.repository.PresentationsRepository;
 import com.x5.template.spring.ChunkTemplateView;
-
-import de.neuland.jade4j.JadeConfiguration;
-import de.neuland.jade4j.spring.template.SpringTemplateLoader;
-import de.neuland.jade4j.spring.view.JadeViewResolver;
-import httl.web.springmvc.HttlViewResolver;
-
-import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
-import org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver;
 
 @Configuration
 @EnableWebMvc
@@ -128,7 +116,7 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
         return viewResolver;
     }
 
-    @Bean
+    /*@Bean
     public ViewResolver velocityViewResolver() {
         VelocityLayoutViewResolver bean = new VelocityLayoutViewResolver();
         bean.setPrefix("/WEB-INF/velocity/");
@@ -147,7 +135,7 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
         VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
         velocityConfigurer.setResourceLoaderPath("/");
         return velocityConfigurer;
-    }
+    }*/
 
     @Bean
     public ViewResolver handlebarsViewResolver() {
@@ -204,7 +192,7 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
         return viewResolver;
     }
 
-    @Bean
+   /* @Bean
     public ViewResolver httlViewResolver() {
         HttlViewResolver viewResolver = new HttlViewResolver();
         viewResolver.setContentType("text/html;charset=UTF-8");
@@ -212,9 +200,9 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
         viewResolver.setCache(false);
 
         return viewResolver;
-    }
+    }*/
 
-    @Bean
+    /*@Bean
     public SpringTemplateLoader jade4jTemplateLoader() {
         SpringTemplateLoader templateLoader = new SpringTemplateLoader();
         templateLoader.setEncoding("UTF-8");
@@ -243,9 +231,9 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
         viewResolver.setConfiguration(applicationContext.getBean(JadeConfiguration.class));
 
         return viewResolver;
-    }
+    }*/
 
-    @Bean
+    /*@Bean
     public ViewResolver scalateViewResolver() {
         ScalateViewResolver viewResolver = new ScalateViewResolver();
         viewResolver.setPrefix("/WEB-INF/scalate/");
@@ -256,7 +244,7 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
         viewResolver.setContentType("text/html;charset=UTF-8");
 
         return viewResolver;
-    }
+    }*/
 
     @Bean
     public ViewResolver htmlFlowViewResolver() {
@@ -301,7 +289,7 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
         return viewResolver;
     }
 
-    @Bean
+    /*@Bean
     public RythmConfigurer rythmConfigurer() {
         RythmConfigurer conf = new RythmConfigurer();
         conf.setDevMode(true);
@@ -321,7 +309,7 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
         viewResolver.setContentType("text/html;charset=UTF-8");
 
         return viewResolver;
-    }
+    }*/
 
     @Bean
     public LiqpViewResolver liqpViewResolver() {

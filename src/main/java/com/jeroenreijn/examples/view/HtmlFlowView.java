@@ -13,14 +13,13 @@ public class HtmlFlowView extends AbstractTemplateView {
 	@Override
 	protected void renderMergedTemplateModel(Map<String, Object> model, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String html = HtmlFlowIndexView.templatePresentations(model).threadSafe().toString();
-
-		response.setContentLength(html.length());
-		response.setContentType("text/html");
-		response.setCharacterEncoding("UTF-8");
-
 		try (PrintWriter writer = response.getWriter()) {
-			writer.write(html);
+			Appendable appendable = new StringBuilder();
+			HtmlFlowIndexView.templatePresentations(appendable, model);
+			response.setContentLength(appendable.toString().getBytes().length);
+			response.setContentType("text/html");
+			response.setCharacterEncoding("UTF-8");
+			writer.write(appendable.toString());
 			writer.flush();
 		}
 	}

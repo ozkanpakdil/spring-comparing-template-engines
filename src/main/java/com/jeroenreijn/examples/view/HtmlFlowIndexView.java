@@ -2,10 +2,10 @@ package com.jeroenreijn.examples.view;
 
 import com.jeroenreijn.examples.model.Presentation;
 import htmlflow.HtmlFlow;
-import htmlflow.HtmlPage;
 import org.xmlet.htmlapifaster.EnumMediaType;
 import org.xmlet.htmlapifaster.EnumRelType;
 
+import java.io.PrintWriter;
 import java.util.Map;
 
 public class HtmlFlowIndexView {
@@ -13,10 +13,10 @@ public class HtmlFlowIndexView {
 //            .view(HtmlFlowIndexView::templatePresentations)
 //            .threadSafe();
 
-    static HtmlPage templatePresentations(Map<String, Object> map) {
+    static void templatePresentations(Appendable writer, Map<String, Object> map) {
         Iterable<Presentation> presentations = (Iterable<Presentation>) map.get("presentations");
 
-        return HtmlFlow.view(page -> page
+        HtmlFlow.view(writer, page -> page
                 .html()
                 .head()
                 .meta().attrCharset("UTF-8").__()
