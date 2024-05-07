@@ -1,19 +1,21 @@
 package com.jeroenreijn.examples.view;
 
-import liqp.Template;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import liqp.TemplateParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.view.AbstractTemplateView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.util.Locale;
 import java.util.Map;
 
 public class LiqpView extends AbstractTemplateView {
 	private static final Logger LOGGER = LoggerFactory.getLogger(LiqpView.class);
+
+	TemplateParser parser = new TemplateParser.Builder().build();
 
 	@Override
 	protected void renderMergedTemplateModel(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -28,7 +30,7 @@ public class LiqpView extends AbstractTemplateView {
 			// Just in case, we need it as in all other view resolvers
 			model.put("contextPath", request.getContextPath());
 
-			String rendered = Template.parse(templateFile).render(model);
+			String rendered = parser.parse(templateFile).render(model);
 			response.getWriter().write(rendered);
 		} else {
 			LOGGER.error("Template not found: {}", templateUrl);

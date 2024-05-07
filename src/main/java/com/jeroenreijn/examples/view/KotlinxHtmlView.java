@@ -1,10 +1,10 @@
 package com.jeroenreijn.examples.view;
 
 import com.jeroenreijn.examples.model.Presentation;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.view.AbstractTemplateView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.util.Map;
 

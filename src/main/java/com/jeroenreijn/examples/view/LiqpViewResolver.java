@@ -10,12 +10,12 @@ public class LiqpViewResolver extends AbstractTemplateViewResolver {
 	public LiqpViewResolver(MessageSource messageSource) {
 		this.setViewClass(this.requiredViewClass());
 
-		Filter.registerFilter(new Filter("i18n") {
+		/*Filter.registerFilter(new Filter("i18n") {
 			@Override
 			public Object apply(Object value, Object... params) {
 				return messageSource.getMessage(value.toString(), null, Locale.ENGLISH);
 			}
-		});
+		});*/
 	}
 
 	@Override

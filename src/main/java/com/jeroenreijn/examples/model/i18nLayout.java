@@ -3,8 +3,7 @@ package com.jeroenreijn.examples.model;
 import java.io.IOException;
 import java.io.Writer;
 
-import javax.servlet.http.HttpServletRequest;
-
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.MessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 

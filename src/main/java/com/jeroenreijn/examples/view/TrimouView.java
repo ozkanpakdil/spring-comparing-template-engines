@@ -4,9 +4,8 @@ import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Objects;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.view.AbstractTemplateView;
 import org.trimou.Mustache;
 
