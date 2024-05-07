@@ -1,30 +1,30 @@
 ## Spring template engine performance tests
-### taken at Tue May  7 23:00:10 UTC 2024
+### taken at Tue May  7 23:18:10 UTC 2024
 
 lower is the better
 <div id="chart_div"></div>
 
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | |
-|velocity | |
-|freemarker | |
-|thymeleaf | |
-|mustache | |
-|jade | |
-|pebble | |
-|handlebars | |
-|scalate | |
-|httl | |
-|chunk | |
-|htmlFlow | |
-|trimou | |
-|rocker | |
-|ickenham | |
-|rythm | |
-|groovy | |
-|liqp | |
-|kotlinx | |
+|jsp | 6.557|
+|velocity | 3.568|
+|freemarker | 2.633|
+|thymeleaf | 6.875|
+|mustache | 2.961|
+|jade | 3.544|
+|pebble | 3.566|
+|handlebars | 13.509|
+|scalate | 3.402|
+|httl | 3.464|
+|chunk | 4.406|
+|htmlFlow | 1.679|
+|trimou | 2.044|
+|rocker | 1.927|
+|ickenham | 4.280|
+|rythm | 3.551|
+|groovy | 735.646|
+|liqp | 9.262|
+|kotlinx | 2.375|
 
 results taken from mvn and jvm :Apache Maven 3.8.8 (4c87b05d9aedce574290d1acc98575ed5eb6cd39)
 Maven home: /usr/share/apache-maven-3.8.8
