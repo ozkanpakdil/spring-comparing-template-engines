@@ -1,7 +1,5 @@
 #!/bin/bash
 set -x
-git config --global user.email "action@github.com"
-git config --global user.name "GitHub Action"
 
 JVMVER=$1
 TESTS=(jsp velocity freemarker thymeleaf mustache jade pebble handlebars scalate httl chunk htmlFlow trimou rocker ickenham rythm groovy liqp kotlinx)
