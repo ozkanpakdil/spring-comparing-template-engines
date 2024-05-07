@@ -1,36 +1,36 @@
 ## Spring template engine performance tests
-### taken at Sun Sep  3 11:27:37 UTC 2023
+### taken at Tue May  7 21:10:10 UTC 2024
 
 lower is the better
 <div id="chart_div"></div>
 
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | 5.183|
-|velocity | 3.699|
-|freemarker | 3.687|
-|thymeleaf | 8.338|
-|mustache | 4.025|
-|jade | 153.716|
-|pebble | 10.149|
-|handlebars | 24.573|
-|scalate | 11.975|
-|httl | 5.257|
-|chunk | 5.514|
-|htmlFlow | 4.155|
-|trimou | 4.540|
-|rocker | 3.810|
-|ickenham | 6.997|
-|rythm | 4.810|
-|groovy | 1022.520|
-|liqp | 9.432|
-|kotlinx | 3.801|
+|jsp | |
+|velocity | |
+|freemarker | |
+|thymeleaf | |
+|mustache | |
+|jade | |
+|pebble | |
+|handlebars | |
+|scalate | |
+|httl | |
+|chunk | |
+|htmlFlow | |
+|trimou | |
+|rocker | |
+|ickenham | |
+|rythm | |
+|groovy | |
+|liqp | |
+|kotlinx | |
 
 results taken from mvn and jvm :Apache Maven 3.8.8 (4c87b05d9aedce574290d1acc98575ed5eb6cd39)
 Maven home: /usr/share/apache-maven-3.8.8
-Java version: 17.0.8, vendor: Eclipse Adoptium, runtime: /usr/lib/jvm/temurin-17-jdk-amd64
+Java version: 21.0.2, vendor: Eclipse Adoptium, runtime: /usr/lib/jvm/temurin-21-jdk-amd64
 Default locale: en, platform encoding: UTF-8
-OS name: "linux", version: "5.15.0-1041-azure", arch: "amd64", family: "unix"
+OS name: "linux", version: "6.5.0-1018-azure", arch: "amd64", family: "unix"
 
 Runs performance test(ab -q -n 10000 -c 10 http://localhost:8080/TEMPLATE) from [Github Actions](https://github.com/ozkanpakdil/spring-comparing-template-engines/actions) and updates here.
 
