@@ -26,7 +26,7 @@
         <mustache-java.version>0.9.5</mustache-java.version>
         <pebble.version>3.2.2</pebble.version>
         <scala.version>2.11</scala.version>
-        <htmlflow.version>4.5</htmlflow.version>
+        <htmlflow.version>4.6</htmlflow.version>
         <rocker.version>1.4.0</rocker.version>
         <trimou.version>2.5.1.Final</trimou.version>
         <ickenham-springmvc.version>1.5.0</ickenham-springmvc.version>
