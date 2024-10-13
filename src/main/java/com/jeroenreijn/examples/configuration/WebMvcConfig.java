@@ -1,10 +1,22 @@
 package com.jeroenreijn.examples.configuration;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-
-import com.jeroenreijn.examples.view.*;
+import com.github.enpassant.ickenham.springmvc.IckenhamViewResolver;
+import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
+import com.jeroenreijn.examples.repository.InMemoryPresentationsRepository;
+import com.jeroenreijn.examples.repository.PresentationsRepository;
+import com.jeroenreijn.examples.view.HtmlFlowViewResolver;
+import com.jeroenreijn.examples.view.KotlinxHtmlViewResolver;
+import com.jeroenreijn.examples.view.LiqpView;
+import com.jeroenreijn.examples.view.LiqpViewResolver;
+import com.jeroenreijn.examples.view.RockerViewResolver;
+import com.jeroenreijn.examples.view.TrimouViewResolver;
+import com.x5.template.spring.ChunkTemplateView;
+import gg.jte.CodeResolver;
+import gg.jte.ContentType;
+import gg.jte.TemplateEngine;
+import gg.jte.resolve.DirectoryCodeResolver;
+import gg.jte.springframework.boot.autoconfigure.JteViewResolver;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -31,20 +43,20 @@ import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
-import com.github.enpassant.ickenham.springmvc.IckenhamViewResolver;
-import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
-import com.jeroenreijn.examples.repository.InMemoryPresentationsRepository;
-import com.jeroenreijn.examples.repository.PresentationsRepository;
-import com.x5.template.spring.ChunkTemplateView;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.jeroenreijn.examples.controller", "com.jeroenreijn.examples.factory"})
+@ComponentScan(basePackages = { "com.jeroenreijn.examples.controller", "com.jeroenreijn.examples.model" })
 public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
     private ApplicationContext applicationContext;
 
     @Override
-    public void setApplicationContext(final ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(@NotNull final ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
 
@@ -56,7 +68,8 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/robots.txt").addResourceLocations("/robots.txt");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/").resourceChain(true).addResolver(new WebJarsResourceResolver());
+        registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/").resourceChain(true)
+                .addResolver(new WebJarsResourceResolver());
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
@@ -79,9 +92,7 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
 
     @Bean
     public PresentationsRepository presentationsRepository() {
-        PresentationsRepository inMemory = new InMemoryPresentationsRepository();
-
-        return inMemory;
+        return new InMemoryPresentationsRepository();
     }
 
     @Bean
@@ -108,7 +119,7 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
     @Bean
     public ViewResolver thymeleafViewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-        viewResolver.setViewNames(new String[]{"*-thymeleaf"});
+        viewResolver.setViewNames(new String[] { "*-thymeleaf" });
         viewResolver.setTemplateEngine(thymeleafTemplateEngine());
         viewResolver.setCharacterEncoding("UTF-8");
         viewResolver.setCache(false);
@@ -322,6 +333,34 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
         viewResolver.setContentType("text/html;charset=UTF-8");
 
         return viewResolver;
+    }
+
+    @Bean
+    public ViewResolver jteViewResolve(TemplateEngine templateEngine) {
+        var viewResolver = new JteViewResolver(templateEngine, ".jte");
+        viewResolver.setPrefix("/templates/jte/");
+        viewResolver.setSuffix(".jte");
+        viewResolver.setViewNames("*-jte");
+        viewResolver.setCache(false);
+        return viewResolver;
+    }
+
+    @Bean
+    public TemplateEngine templateEngine() {
+        String profile = System.getenv("SPRING_ENV");
+        if ("prod".equals(profile)) {
+            // Templates will be compiled by the maven build task
+            return TemplateEngine.createPrecompiled(ContentType.Html);
+        } else {
+            // Here, a JTE file watcher will recompile the JTE templates upon file save (the web browser will auto-refresh)
+            // If using IntelliJ, use Ctrl-F9 to trigger an auto-refresh when editing non-JTE files.
+            CodeResolver codeResolver = new DirectoryCodeResolver(Path.of(
+                    "src", "main", "resources", "templates", "jte"));
+            TemplateEngine templateEngine = TemplateEngine.create(codeResolver, Paths.get("jte"), ContentType.Html,
+                    getClass().getClassLoader());
+            templateEngine.setBinaryStaticContent(true);
+            return templateEngine;
+        }
     }
 
     @Bean

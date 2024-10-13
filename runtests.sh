@@ -2,7 +2,7 @@
 set -x
 
 JVMVER=$1
-TESTS=(jsp velocity freemarker thymeleaf mustache jade pebble handlebars scalate httl chunk htmlFlow trimou rocker ickenham rythm groovy liqp kotlinx)
+TESTS=(jsp velocity freemarker thymeleaf mustache jade pebble handlebars scalate httl chunk htmlFlow trimou rocker ickenham rythm groovy kotlinx jte)
 > result-$1.txt
 
 javaver=`mvn -version`
