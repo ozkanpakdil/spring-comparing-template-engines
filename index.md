@@ -1,36 +1,36 @@
 ## Spring template engine performance tests
-### taken at Tue May  7 23:18:10 UTC 2024
+### taken at Sun Oct 13 16:23:25 UTC 2024
 
 lower is the better
 <div id="chart_div"></div>
 
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | 6.557|
-|velocity | 3.568|
-|freemarker | 2.633|
-|thymeleaf | 6.875|
-|mustache | 2.961|
-|jade | 3.544|
-|pebble | 3.566|
-|handlebars | 13.509|
-|scalate | 3.402|
-|httl | 3.464|
-|chunk | 4.406|
-|htmlFlow | 1.679|
-|trimou | 2.044|
-|rocker | 1.927|
-|ickenham | 4.280|
-|rythm | 3.551|
-|groovy | 735.646|
-|liqp | 9.262|
-|kotlinx | 2.375|
+|jsp | 6.652|
+|velocity | 3.728|
+|freemarker | 2.616|
+|thymeleaf | 6.932|
+|mustache | 3.100|
+|jade | 3.503|
+|pebble | 3.519|
+|handlebars | 13.405|
+|scalate | 3.987|
+|httl | 3.430|
+|chunk | 4.430|
+|htmlFlow | 1.670|
+|trimou | 2.059|
+|rocker | 1.957|
+|ickenham | 4.342|
+|rythm | 3.411|
+|groovy | 751.200|
+|kotlinx | 2.422|
+|jte | 2.940|
 
 results taken from mvn and jvm :Apache Maven 3.8.8 (4c87b05d9aedce574290d1acc98575ed5eb6cd39)
 Maven home: /usr/share/apache-maven-3.8.8
-Java version: 21.0.2, vendor: Eclipse Adoptium, runtime: /usr/lib/jvm/temurin-21-jdk-amd64
+Java version: 23, vendor: Eclipse Adoptium, runtime: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/23.0.0-37/x64
 Default locale: en, platform encoding: UTF-8
-OS name: "linux", version: "6.5.0-1018-azure", arch: "amd64", family: "unix"
+OS name: "linux", version: "6.5.0-1025-azure", arch: "amd64", family: "unix"
 
 Runs performance test(ab -q -n 10000 -c 10 http://localhost:8080/TEMPLATE) from [Github Actions](https://github.com/ozkanpakdil/spring-comparing-template-engines/actions) and updates here.
 
