@@ -1,30 +1,24 @@
 ## Spring template engine performance tests
-### taken at Wed Jun  4 23:16:53 UTC 2025
+### taken at Thu Jun  5 11:50:08 UTC 2025
 
 lower is the better
 <div id="chart_div"></div>
 
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | |
-|velocity | |
-|freemarker | |
-|thymeleaf | |
-|mustache | |
-|jade | |
-|pebble | |
-|handlebars | |
-|scalate | |
-|httl | |
-|chunk | |
-|htmlFlow | |
-|trimou | |
-|rocker | |
-|ickenham | |
-|rythm | |
-|groovy | |
-|kotlinx | |
-|jte | |
+|jsp | 2.331|
+|velocity | 7.866|
+|freemarker | 1.983|
+|thymeleaf | 4.786|
+|mustache | 2.216|
+|pebble | 2.688|
+|handlebars | 11.440|
+|htmlFlow | 1.272|
+|trimou | 1.591|
+|rocker | 1.497|
+|groovy | too slow|
+|kotlinx | 2.339|
+|jte | 1.797|
 
 results taken from mvn and jvm :Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)
 Maven home: /usr/share/apache-maven-3.9.9
@@ -42,14 +36,14 @@ If you are planning to use any template engine from the list, choose wisely, low
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'ozkanpakdil';
-    
+
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-    
+
     google.charts.load('current', {
           packages: ['corechart'],
           callback: drawChart

@@ -1,21 +1,15 @@
 |Engine Name | Seconds|
 |------------|--------|
-|jsp | |
-|velocity | |
-|freemarker | |
-|thymeleaf | |
-|mustache | |
-|jade | |
-|pebble | |
-|handlebars | |
-|scalate | |
-|httl | |
-|chunk | |
-|htmlFlow | |
-|trimou | |
-|rocker | |
-|ickenham | |
-|rythm | |
-|groovy | |
-|kotlinx | |
-|jte | |
+|jsp | 2.331|
+|velocity | 7.866|
+|freemarker | 1.983|
+|thymeleaf | 4.786|
+|mustache | 2.216|
+|pebble | 2.688|
+|handlebars | 11.440|
+|htmlFlow | 1.272|
+|trimou | 1.591|
+|rocker | 1.497|
+|groovy | too slow|
+|kotlinx | 2.339|
+|jte | 1.797|
