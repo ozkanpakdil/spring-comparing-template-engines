@@ -41,4 +41,13 @@ public class PresentationsControllerTest {
         assertEquals("index-test", view);
     }
 
+    @Test
+    public void should_return_velocity_view() throws Exception {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        request.setServerName("localhost");
+        request.setRequestURI("/velocity");
+
+        String view = controller.showList(request, "velocity", modelMap);
+        assertEquals("index-velocity", view);
+    }
 }

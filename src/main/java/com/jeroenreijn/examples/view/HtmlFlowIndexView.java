@@ -9,9 +9,6 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 public class HtmlFlowIndexView {
-//    public static final HtmlView<Map<String, Object>> view = HtmlFlow
-//            .view(HtmlFlowIndexView::templatePresentations)
-//            .threadSafe();
 
     static void templatePresentations(Appendable writer, Map<String, Object> map) {
         Iterable<Presentation> presentations = (Iterable<Presentation>) map.get("presentations");

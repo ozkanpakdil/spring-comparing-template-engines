@@ -10,11 +10,13 @@ import com.jeroenreijn.examples.view.LiqpView;
 import com.jeroenreijn.examples.view.LiqpViewResolver;
 import com.jeroenreijn.examples.view.RockerViewResolver;
 import com.jeroenreijn.examples.view.TrimouViewResolver;
+import com.jeroenreijn.examples.view.VelocityViewResolver;
 import com.x5.template.spring.ChunkTemplateView;
 import gg.jte.CodeResolver;
 import gg.jte.ContentType;
 import gg.jte.TemplateEngine;
 import gg.jte.resolve.DirectoryCodeResolver;
+import gg.jte.springframework.boot.autoconfigure.JteProperties;
 import gg.jte.springframework.boot.autoconfigure.JteViewResolver;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
@@ -62,7 +64,7 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
+        configurer.enable("default");
     }
 
     @Override
@@ -127,26 +129,18 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
         return viewResolver;
     }
 
-    /*@Bean
-    public ViewResolver velocityViewResolver() {
-        VelocityLayoutViewResolver bean = new VelocityLayoutViewResolver();
-        bean.setPrefix("/WEB-INF/velocity/");
-        bean.setViewNames("*-velocity");
-        bean.setLayoutUrl("/WEB-INF/velocity/layout.vm");
-        bean.setSuffix(".vm");
-//        bean.setToolboxConfigLocation("/WEB-INF/velocity/toolbox.xml");
-        LinkTool l = new LinkTool();
-        bean.getAttributesMap().put("link",l);
-        bean.setCache(false);
-        return bean;
-    }
-
     @Bean
-    public VelocityConfigurer velocityConfig() {
-        VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
-        velocityConfigurer.setResourceLoaderPath("/");
-        return velocityConfigurer;
-    }*/
+    public ViewResolver velocityViewResolver() {
+        VelocityViewResolver viewResolver = new VelocityViewResolver();
+        viewResolver.setPrefix("/WEB-INF/velocity/");
+        viewResolver.setViewNames(new String[] { "*-velocity" });
+        viewResolver.setLayoutUrl("/WEB-INF/velocity/layout.vm");
+        viewResolver.setSuffix(".vm");
+        viewResolver.setCache(false);
+        viewResolver.setContentType("text/html;charset=UTF-8");
+        viewResolver.setMessageSource(applicationContext.getBean(MessageSource.class));
+        return viewResolver;
+    }
 
     @Bean
     public ViewResolver handlebarsViewResolver() {
@@ -336,8 +330,8 @@ public class WebMvcConfig implements ApplicationContextAware, WebMvcConfigurer {
     }
 
     @Bean
-    public ViewResolver jteViewResolve(TemplateEngine templateEngine) {
-        var viewResolver = new JteViewResolver(templateEngine, ".jte");
+    public ViewResolver jteViewResolve(TemplateEngine templateEngine, JteProperties jteProperties) {
+        var viewResolver = new JteViewResolver(templateEngine, jteProperties);
         viewResolver.setPrefix("/templates/jte/");
         viewResolver.setSuffix(".jte");
         viewResolver.setViewNames("*-jte");

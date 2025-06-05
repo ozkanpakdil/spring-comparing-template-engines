@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="includes :: head">
+<head th:replace="~{includes :: head}">
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
 	<div class="container">
-        <div th:replace="includes :: pageHeader"></div>
+        <div th:replace="~{includes :: pageHeader}"></div>
         <div class="card mb-3 shadow-sm rounded"  th:each="item : ${presentations}">
             <div class="card-header">
                 <h5 class="card-title" th:text="${item.title} +' - '+ ${item.speakerName}">Title - Speakername</h5>
@@ -13,7 +13,7 @@
             <div class="card-body" th:utext="${item.summary}">Summary</div>
         </div>
     </div>
-    <script th:src="@{/webjars/jquery/jquery.min.js}" th:replace="includes :: scripts"></script>
+    <script th:src="@{/webjars/jquery/jquery.min.js}" th:replace="~{includes :: scripts}"></script>
     <script th:remove="all" type="text/javascript" th:src="@{/static/js/thymol.js}"></script>
 </body>
 </html>

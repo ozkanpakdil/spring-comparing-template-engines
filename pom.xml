@@ -21,7 +21,7 @@
         <handlebars.version>4.4.0</handlebars.version>
         <chunk.version>3.6.2</chunk.version>
         <chunk-springmvc.version>0.1.0</chunk-springmvc.version>
-        <freemarker.version>2.3.32</freemarker.version>
+        <freemarker.version>2.3.34</freemarker.version>
         <mustache-spring-view.version>1.4</mustache-spring-view.version>
         <mustache-java.version>0.9.5</mustache-java.version>
         <pebble.version>3.2.4</pebble.version>
@@ -96,12 +96,11 @@
             <version>3.0.2</version>
         </dependency>
 
-
-        <!--<dependency>
+        <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-            <version>2.0.0</version>
-        </dependency>-->
+            <version>3.0.1</version>
+        </dependency>
 
 
         <!-- Template engines -->
@@ -215,6 +214,18 @@
             <version>${liqp.version}</version>
         </dependency>
 
+        <!-- Velocity dependencies -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity.tools</groupId>
+            <artifactId>velocity-tools-view</artifactId>
+            <version>3.1</version>
+        </dependency>
+
         <dependency>
             <groupId>gg.jte</groupId>
             <artifactId>jte</artifactId>
@@ -232,6 +243,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -242,19 +258,19 @@
                 <groupId>gg.jte</groupId>
                 <artifactId>jte-maven-plugin</artifactId>
                 <version>3.2.1</version>
+                <configuration>
+                    <sourceDirectory>${project.basedir}/src/main/resources/templates/jte</sourceDirectory>
+                    <targetDirectory>${project.build.directory}/classes/META-INF/jte</targetDirectory>
+                    <contentType>Html</contentType>
+                    <binaryStaticContent>true</binaryStaticContent>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>jte-generate</id>
-                        <phase>generate-sources</phase>
+                        <id>jte-precompile</id>
+                        <phase>prepare-package</phase>
                         <goals>
-                            <goal>generate</goal>
+                            <goal>precompile</goal>
                         </goals>
-                        <configuration>
-                            <sourceDirectory>${project.basedir}/src/main/resources/templates/jte</sourceDirectory>
-                            <contentType>Html</contentType>
-                            <binaryStaticContent>true</binaryStaticContent>
-                            <targetResourceDirectory>${project.build.outputDirectory}</targetResourceDirectory>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
