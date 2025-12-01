@@ -27,7 +27,7 @@
         <pebble.version>4.0.0</pebble.version>
         <scala.version>2.11</scala.version>
         <htmlflow.version>5.0.1</htmlflow.version>
-        <rocker.version>2.2.1</rocker.version>
+        <rocker.version>2.4.0</rocker.version>
         <trimou.version>2.5.1.Final</trimou.version>
         <ickenham-springmvc.version>1.5.0</ickenham-springmvc.version>
         <liqp.version>0.9.2.3</liqp.version>
