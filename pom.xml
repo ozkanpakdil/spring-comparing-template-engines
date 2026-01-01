@@ -24,7 +24,7 @@
         <freemarker.version>2.3.34</freemarker.version>
         <mustache-spring-view.version>1.4</mustache-spring-view.version>
         <mustache-java.version>0.9.5</mustache-java.version>
-        <pebble.version>4.0.0</pebble.version>
+        <pebble.version>4.1.0</pebble.version>
         <scala.version>2.11</scala.version>
         <htmlflow.version>5.0.1</htmlflow.version>
         <rocker.version>2.4.0</rocker.version>
