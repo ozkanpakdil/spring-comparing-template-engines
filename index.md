@@ -108,10 +108,26 @@ If you are planning to use any template engine from the list, choose wisely, low
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77642-34"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){dataLayer.push(arguments);} 
   gtag('js', new Date());
 
   gtag('config', 'UA-77642-34');
 </script>
 
 
+
+<!-- Shared footer placeholder -->
+<div id="site-footer"></div>
+<script>
+// Fetch shared footer from main site (updates centrally)
+fetch('https://raw.githubusercontent.com/ozkanpakdil/ozkanpakdil.github.io/main/static/footer.html')
+  .then(function(response){
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.text();
+  })
+  .then(function(html){
+    var el = document.getElementById('site-footer');
+    if (el) el.innerHTML = html;
+  })
+  .catch(function(e){ console.error('load footer', e); });
+</script>
